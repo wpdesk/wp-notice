@@ -10,10 +10,10 @@ namespace WPDesk\Notice;
 class DismissibleNotice extends Notice
 {
 
-	/**
-	 * @var string
-	 */
-	private $noticeDismissOptionName;
+    /**
+     * @var string
+     */
+    private $noticeDismissOptionName;
 
     /**
      * WPDesk_Flexible_Shipping_Notice constructor.
@@ -28,7 +28,17 @@ class DismissibleNotice extends Notice
         $this->noticeDismissOptionName = $noticeContent;
     }
 
-    protected
+    /**
+     * Get attributes as string.
+     *
+     * @return string
+     */
+    protected function getAttributesAsString()
+    {
+        $attributesAsString = parent::getAttributesAsString();
+        $attributesAsString .= sprintf('data-dismiss-option="%1$s"', esc_attr($this->noticeDismissOptionName));
+        return $attributesAsString;
+    }
 
 }
 

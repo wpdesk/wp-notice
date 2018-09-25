@@ -36,11 +36,11 @@ class Notice
      */
     protected $isDismissible;
 
-	/**
-	 * Attributes.
-	 *
-	 * @var string[]
-	 */
+    /**
+     * Attributes.
+     *
+     * @var string[]
+     */
     protected $attributes = array();
 
     /**
