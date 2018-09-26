@@ -35,7 +35,6 @@ stages:
     - vendor/bin/phpunit --configuration phpunit-integration.xml --coverage-text --colors=never
   only:
     - tags
-    - master@gitlab-org/gitlab-ce
 
 .template: &job-test-integration-template-fast
   <<: *job-test-integration-template
@@ -64,7 +63,6 @@ stages:
     - vendor/bin/phpunit --configuration phpunit-unit.xml --coverage-text --colors=never
   only:
     - tags
-    - master@gitlab-org/gitlab-ce
 
 .template: &job-test-unit-template-fast
   <<: *job-test-unit-template
@@ -75,7 +73,7 @@ stages:
     - cat /tmp/wordpress-develop/src/wp-includes/version.php
     - cat /tmp/woocommerce/woocommerce.php
     - composer update --no-progress
-    - vendor/bin/phpunit --configuration phpunit-unit.xml --no-coverage
+    - vendor/bin/phpunit --configuration phpunit-unit.xml
   except:
     - tags
   only:
