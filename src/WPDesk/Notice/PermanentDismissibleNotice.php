@@ -38,8 +38,17 @@ class PermanentDismissibleNotice extends Notice
         $this->noticeName = $noticeName;
         $this->noticeDismissOptionName = static::OPTION_NAME_PREFIX . $noticeName;
         if (self::OPTION_VALUE_DISMISSED === get_option($this->noticeDismissOptionName, '')) {
-            remove_action('admin_notices', [$this, 'showNotice'], $priority);
+            $this->removeAction();
         }
+    }
+
+    /**
+     * Undo dismiss notice.
+     */
+    public function undoDismiss()
+    {
+        delete_option($this->noticeDismissOptionName);
+        $this->addAction();
     }
 
     /**

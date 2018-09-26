@@ -37,11 +37,24 @@ class Notice
     protected $isDismissible;
 
     /**
+     * Notice hook priority.
+     * @var int;
+     */
+    protected $priority;
+
+    /**
+     * Is action added?
+     * @var bool
+     */
+    private $isActionAdded = false;
+
+    /**
      * Attributes.
      *
      * @var string[]
      */
     protected $attributes = array();
+
 
     /**
      * WPDesk_Flexible_Shipping_Notice constructor.
@@ -53,10 +66,30 @@ class Notice
      */
     public function __construct($noticeType, $noticeContent, $isDismissible = false, $priority = 10)
     {
-        $this->noticeType    = $noticeType;
+        $this->noticeType = $noticeType;
         $this->noticeContent = $noticeContent;
         $this->isDismissible = $isDismissible;
-        add_action('admin_notices', [$this, 'showNotice'], $priority);
+        $this->priority = $priority;
+        $this->addAction();
+    }
+
+    /**
+     * Add notice action.
+     */
+    protected function addAction()
+    {
+        if (!$this->isActionAdded) {
+            add_action('admin_notices', [$this, 'showNotice'], $this->priority);
+            $this->isActionAdded = true;
+        }
+    }
+
+    protected function removeAction()
+    {
+        if ($this->isActionAdded) {
+            remove_action('admin_notices', [$this, 'showNotice'], $this->priority);
+            $this->isActionAdded = false;
+        }
     }
 
     /**
