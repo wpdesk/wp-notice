@@ -7,8 +7,15 @@ namespace WPDesk\Notice;
  *
  * @package WPDesk\Notice
  */
-class DismissibleNotice extends Notice
+class PermanentDismissibleNotice extends Notice
 {
+
+    const OPTION_NAME_PREFIX = 'wpdesk_notice_dismiss_';
+
+    /**
+     * @var string
+     */
+    private $noticeName;
 
     /**
      * @var string
@@ -20,12 +27,13 @@ class DismissibleNotice extends Notice
      *
      * @param string $noticeType Notice type.
      * @param string $noticeContent Notice content.
-     * @param string $noticeDismissOptionName Notice dismiss option name.
+     * @param string $noticeName Notice dismiss option name.
      */
-    public function __construct($noticeType, $noticeContent, $noticeDismissOptionName)
+    public function __construct($noticeType, $noticeContent, $noticeName)
     {
         parent::__construct($noticeType, $noticeContent, true);
-        $this->noticeDismissOptionName = $noticeContent;
+        $this->noticeName = $noticeName;
+        $this->noticeDismissOptionName = static::OPTION_NAME_PREFIX . $noticeName;
     }
 
     /**
@@ -36,7 +44,7 @@ class DismissibleNotice extends Notice
     protected function getAttributesAsString()
     {
         $attributesAsString = parent::getAttributesAsString();
-        $attributesAsString .= sprintf('data-dismiss-option="%1$s"', esc_attr($this->noticeDismissOptionName));
+        $attributesAsString .= sprintf('data-notice-name="%1$s"', esc_attr($this->noticeName));
         return $attributesAsString;
     }
 
