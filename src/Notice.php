@@ -1,6 +1,6 @@
 <?php
 
-namespace WPDesk\Notice\Notice;
+namespace WPDesk\Notice;
 
 /**
  * Class Notice.
