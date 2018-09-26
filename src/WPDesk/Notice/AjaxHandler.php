@@ -70,6 +70,7 @@ class AjaxHandler implements HookablePluginDependant
                 PermanentDismissibleNotice::OPTION_NAME_PREFIX . $noticeName,
                 PermanentDismissibleNotice::OPTION_VALUE_DISMISSED
             );
+            do_action('wpdesk_notice_dismissed_notice', $noticeName);
         }
         die();
     }
