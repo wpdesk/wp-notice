@@ -1,9 +1,9 @@
 <phpunit bootstrap="tests/integration/bootstrap.php"
          backupGlobals="false"
-     >
+>
     <testsuites>
         <testsuite>
-            <directory prefix="test-" suffix=".php">./tests/integration</directory>
+            <directory prefix="Test" suffix=".php">./tests/integration</directory>
         </testsuite>
     </testsuites>
 
