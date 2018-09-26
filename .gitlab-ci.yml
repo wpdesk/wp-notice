@@ -73,7 +73,7 @@ stages:
     - cat /tmp/wordpress-develop/src/wp-includes/version.php
     - cat /tmp/woocommerce/woocommerce.php
     - composer update --no-progress
-    - vendor/bin/phpunit --configuration phpunit-unit.xml
+    - vendor/bin/phpunit --configuration phpunit-unit.xml --no-coverage
   except:
     - tags
   only:
