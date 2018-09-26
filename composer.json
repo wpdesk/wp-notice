@@ -2,10 +2,11 @@
     "name": "wpdesk/wp-notice",
     "description": "WP Notice",
     "keywords": ["wordpress", "notice", "admin"],
+    "homepage": "https://gitlab.com/wpdesk/wp-notice",
     "license": "MIT",
     "authors": [
         {
-            "name": "GROla",
+            "name": "grola",
             "email": "grola@wpdesk.net"
         }
     ],
