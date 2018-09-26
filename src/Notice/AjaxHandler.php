@@ -1,6 +1,6 @@
 <?php
 
-namespace WPDesk\Notice;
+namespace WPDesk\Notice\Notice;
 
 use WPDesk\PluginBuilder\Plugin\HookablePluginDependant;
 use WPDesk\PluginBuilder\Plugin\PluginAccess;
