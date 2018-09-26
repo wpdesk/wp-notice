@@ -52,7 +52,7 @@ class AjaxHandler implements HookablePluginDependant
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
         wp_register_script(
             self::SCRIPT_HANDLE,
-            trailingslashit($this->assetsURL) . 'js/' . $suffix . '.js',
+            trailingslashit($this->assetsURL) . 'js/notice' . $suffix . '.js',
             array( 'jquery' ),
             self::SCRIPTS_VERSION
         );
