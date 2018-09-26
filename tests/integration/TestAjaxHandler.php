@@ -1,11 +1,13 @@
 <?php
 
 use \WPDesk\Notice\AjaxHandler;
+use \WPDesk\Notice\PermanentDismissibleNotice;
 
 class TestAjaxHandler extends WP_UnitTestCase
 {
 
     const ASSETS_URL = 'http://test.com/test/assetes/';
+    const NOTICE_NAME = 'test_notice_name';
     const WP_DEFAULT_PRIORITY = 10;
 
     public function testHooks()
@@ -35,6 +37,18 @@ class TestAjaxHandler extends WP_UnitTestCase
             self::ASSETS_URL . 'js/notice.js',
             $registeredScripts['wpdesk_notice']->src,
             'Script src is invalid!'
+        );
+    }
+
+    public function testProcessAjaxNoticeDismiss() {
+        $_POST[AjaxHandler::POST_FIELD_NOTICE_NAME] = self::NOTICE_NAME;
+
+        $ajaxHandler = new AjaxHandler(self::ASSETS_URL);
+        $ajaxHandler->processAjaxNoticeDismiss();
+
+        $this->assertEquals(
+            PermanentDismissibleNotice::OPTION_VALUE_DISMISSED,
+            get_option(PermanentDismissibleNotice::OPTION_NAME_PREFIX . self::NOTICE_NAME)
         );
     }
 

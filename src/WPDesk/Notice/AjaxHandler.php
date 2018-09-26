@@ -72,7 +72,9 @@ class AjaxHandler implements HookablePluginDependant
             );
             do_action('wpdesk_notice_dismissed_notice', $noticeName);
         }
-        die();
+        if (defined('DOING_AJAX') && DOING_AJAX) {
+            die();
+        }
     }
 
 }
