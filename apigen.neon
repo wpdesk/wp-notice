@@ -2,7 +2,7 @@ destination: docs
 templateConfig: /app/theme-woocommerce/config.neon
 extensions: [php]
 source:
-    - classes
+    - src
 exclude:
     - vendor
     - tests
