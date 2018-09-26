@@ -49,13 +49,14 @@ class Notice
      * @param string $noticeType Notice type.
      * @param string $noticeContent Notice content.
      * @param bool $isDismissible Is dismissible.
+     * @param int $priority Notice priority.
      */
-    public function __construct($noticeType, $noticeContent, $isDismissible = false)
+    public function __construct($noticeType, $noticeContent, $isDismissible = false, $priority = 10)
     {
         $this->noticeType    = $noticeType;
         $this->noticeContent = $noticeContent;
         $this->isDismissible = $isDismissible;
-        add_action('admin_notices', [$this, 'showNotice']);
+        add_action('admin_notices', [$this, 'showNotice'], $priority);
     }
 
     /**
