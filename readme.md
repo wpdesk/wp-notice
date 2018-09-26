@@ -1,3 +1,6 @@
+[![pipeline status](https://gitlab.com/wpdesk/wp-notice/badges/master/pipeline.svg)](https://gitlab.com/wpdesk/wp-notice/commits/master) 
+[![coverage report](https://gitlab.com/wpdesk/wp-notice/badges/master/coverage.svg)](https://gitlab.com/wpdesk/wp-notice/commits/master)
+
 WordPress Library to display notices in admin area.
 ===================================================
 
