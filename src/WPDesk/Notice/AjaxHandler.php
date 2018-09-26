@@ -15,8 +15,10 @@ class AjaxHandler implements HookablePluginDependant
 
     use PluginAccess;
 
-    const SCRIPTS_VERSION = '1';
     const POST_FIELD_NOTICE_NAME = 'notice-name';
+
+    const SCRIPTS_VERSION = '1';
+    const SCRIPT_HANDLE = 'wpdesk_notice';
 
     /**
      * @var string
@@ -49,11 +51,12 @@ class AjaxHandler implements HookablePluginDependant
     {
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
         wp_register_script(
-            'wpdesk_notice',
+            self::SCRIPT_HANDLE,
             trailingslashit($this->assetsURL) . 'js/' . $suffix . '.js',
             array( 'jquery' ),
             self::SCRIPTS_VERSION
         );
+        wp_enqueue_script(self::SCRIPT_HANDLE);
     }
 
     /**
