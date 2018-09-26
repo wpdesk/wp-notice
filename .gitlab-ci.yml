@@ -35,6 +35,7 @@ stages:
     - vendor/bin/phpunit --configuration phpunit-integration.xml --coverage-text --colors=never
   only:
     - tags
+    - master
 
 .template: &job-test-integration-template-fast
   <<: *job-test-integration-template
