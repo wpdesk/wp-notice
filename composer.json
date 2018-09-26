@@ -1,6 +1,8 @@
 {
     "name": "wpdesk/wp-notice",
-    "authors": [
+    "description": "WP Notice",
+    "keywords": ["wordpress", "notice", "admin"],
+    "license": "MIT",    "authors": [
         {
             "name": "GROla",
             "email": "grola@wpdesk.net"
