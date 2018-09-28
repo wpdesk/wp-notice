@@ -1,9 +1,9 @@
 {
     "name": "wpdesk/wp-notice",
-    "description": "WP Notice",
+    "description": "Library for displaying Wordpress notices.",
+    "license": "MIT",
     "keywords": ["wordpress", "notice", "admin"],
     "homepage": "https://gitlab.com/wpdesk/wp-notice",
-    "license": "MIT",
     "authors": [
         {
             "name": "grola",
