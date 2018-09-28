@@ -1,5 +1,6 @@
 [![pipeline status](https://gitlab.com/wpdesk/wp-notice/badges/master/pipeline.svg)](https://gitlab.com/wpdesk/wp-notice/commits/master) 
-[![coverage report](https://gitlab.com/wpdesk/wp-notice/badges/master/coverage.svg)](https://gitlab.com/wpdesk/wp-notice/commits/master)
+[![coverage report](https://gitlab.com/wpdesk/wp-notice/badges/master/coverage.svg)](https://gitlab.com/wpdesk/wp-notice/commits/master) 
+
 
 WordPress Library to display notices in admin area.
 ===================================================
@@ -33,7 +34,7 @@ require_once 'vendor/autoload.php';
 Simple usage looks like:
 
 ```php
-$notice = new Notice(Notice::NOTICE_TYPE_INFO, 'Notice text goes here', false); 
+$notice = new \WPDesk\Notice\Notice(Notice::NOTICE_TYPE_INFO, 'Notice text goes here'); 
 ```
 
 Notice must be used before WordPress action `admin_notices`. WordPress admin actions order is listed [here](https://codex.wordpress.org/Plugin_API/Action_Reference#Actions_Run_During_an_Admin_Page_Request). 
