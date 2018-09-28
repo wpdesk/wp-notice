@@ -1,4 +1,4 @@
-[![pipeline status](https://gitlab.com/wpdesk/wp-notice/badges/master/pipeline.svg)](https://gitlab.com/wpdesk/wp-notice/commits/master) 
+[![pipeline status](https://gitlab.com/wpdesk/wp-notice/badges/master/pipeline.svg)](https://gitlab.com/wpdesk/wp-notice/pipelines) 
 [![coverage report](https://gitlab.com/wpdesk/wp-notice/badges/master/coverage.svg)](https://gitlab.com/wpdesk/wp-notice/commits/master) 
 
 

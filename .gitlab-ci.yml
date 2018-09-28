@@ -177,47 +177,6 @@ integration test current woocommerce:
     - git clone https://github.com/woocommerce/woocommerce.git
     - cd ${CI_PROJECT_DIR}
 
-acceptance test:
-  image: wpdesknet/node
-  variables:
-    CI_DEBUG_SERVICES: trace
-  services:
-    - name: mysql:5.6
-      alias: mysqltests
-    - name: wpdesknet/apache-woocommerce:latest
-      alias: wootests
-    - name: selenium/standalone-chrome
-      alias: selenium
-  artifacts:
-    when: always
-    expire_in: 1 day
-    name: "error logs"
-    paths:
-      - ${CI_PROJECT_DIR}/acceptance
-  stage: tests
-  allow_failure: true
-  script:
-    - cd ${CI_PROJECT_DIR}
-    - composer update --no-progress --no-dev
-    - if [[ -f ${CI_PROJECT_DIR}/tests/acceptance/prepare.sh ]]; then sh ${CI_PROJECT_DIR}/tests/acceptance/prepare.sh; fi
-
-    - export MYSQL_IP=$(awk '/^[[:space:]]*($|#)/{next} /mysqltests/{print $1; exit}' /etc/hosts)
-    - export WOOTESTS_IP=$(awk '/^[[:space:]]*($|#)/{next} /wootests/{print $1; exit}' /etc/hosts)
-    - echo "http://wootests/wpdesk_init.php?mysql_ip=${MYSQL_IP}&wootests_ip=${WOOTESTS_IP}"
-    - wget -O /tmp/wpdesk_init.txt "http://wootests/wpdesk_init.php?mysql_ip=${MYSQL_IP}&wootests_ip=${WOOTESTS_IP}"
-    - tail -50 /tmp/wpdesk_init.txt
-
-    - sh /tmp/clone.sh git@gitlab.com:wpdesk/plugins-tests.git /tmp/tests headless
-    - cd /tmp/tests
-    - npm install
-    - npm install -g grunt-cli
-    - cd node_modules/.bin
-    - ./webdriver-manager update
-    - cd ../
-    - mkdir -p ${CI_PROJECT_DIR}/acceptance/reports/html/screenshot
-    - grunt chrome-${CI_PROJECT_NAME}
-
-
 apigen docs:
   image:
     name: wpdesknet/apigen
