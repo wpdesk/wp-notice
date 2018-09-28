@@ -28,6 +28,13 @@ To use the bindings, use Composer's [autoload](https://getcomposer.org/doc/01-ba
 require_once 'vendor/autoload.php';
 ```
 
+## Manual instalation
+
+If you do not wish to use Composer, you can download the latest release. Then, to use the Notices, include the init.php file.
+
+```php
+require_once('/path/to/notice/src/init.php');
+```
 
 ## Getting Started
 
