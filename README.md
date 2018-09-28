@@ -1,5 +1,9 @@
 [![pipeline status](https://gitlab.com/wpdesk/wp-notice/badges/master/pipeline.svg)](https://gitlab.com/wpdesk/wp-notice/pipelines) 
 [![coverage report](https://gitlab.com/wpdesk/wp-notice/badges/master/coverage.svg)](https://gitlab.com/wpdesk/wp-notice/commits/master) 
+[![Latest Stable Version](https://poser.pugx.org/wpdesk/wp-notice/v/stable)](https://packagist.org/packages/wpdesk/wp-notice) 
+[![Total Downloads](https://poser.pugx.org/wpdesk/wp-notice/downloads)](https://packagist.org/packages/wpdesk/wp-notice) 
+[![Latest Unstable Version](https://poser.pugx.org/wpdesk/wp-notice/v/unstable)](https://packagist.org/packages/wpdesk/wp-notice) 
+[![License](https://poser.pugx.org/wpdesk/wp-notice/license)](https://packagist.org/packages/wpdesk/wp-notice) 
 
 
 WordPress Library to display notices in admin area.
