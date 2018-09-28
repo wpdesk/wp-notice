@@ -23,7 +23,7 @@ PHP 5.5 or later.
 You can install the bindings via [Composer](http://getcomposer.org/). Run the following command:
 
 ```bash
-composer require wpdesk/wp-notice:^1.0
+composer require wpdesk/wp-notice
 ```
 
 To use the bindings, use Composer's [autoload](https://getcomposer.org/doc/01-basic-usage.md#autoloading):
