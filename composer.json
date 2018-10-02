@@ -4,6 +4,7 @@
     "license": "MIT",
     "keywords": ["wordpress", "notice", "admin"],
     "homepage": "https://gitlab.com/wpdesk/wp-notice",
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "grola",
