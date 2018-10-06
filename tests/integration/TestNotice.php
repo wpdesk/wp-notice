@@ -16,7 +16,7 @@ class TestNotice extends WP_UnitTestCase
 
     public function testShowNotice()
     {
-        $notice = new Notice(Notice::NOTICE_TYPE_INFO, 'test');
+        $notice = new Notice('test', Notice::NOTICE_TYPE_INFO );
 
         $this->expectOutputString('<div class="notice notice-info"><p>test</p></div>');
 
@@ -25,7 +25,7 @@ class TestNotice extends WP_UnitTestCase
 
     public function testShowNoticeDismissible()
     {
-        $notice = new Notice(Notice::NOTICE_TYPE_INFO, 'test', true);
+        $notice = new Notice('test', Notice::NOTICE_TYPE_INFO, true);
 
         $this->expectOutputString('<div class="notice notice-info is-dismissible"><p>test</p></div>');
 
