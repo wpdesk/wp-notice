@@ -34,7 +34,7 @@ class Notice
      *
      * @var bool
      */
-    protected $isDismissible;
+    protected $dismissible;
 
     /**
      * Notice hook priority.
@@ -46,7 +46,7 @@ class Notice
      * Is action added?
      * @var bool
      */
-    private $isActionAdded = false;
+    private $actionAdded = false;
 
     /**
      * Attributes.
@@ -61,15 +61,15 @@ class Notice
      *
      * @param string $noticeContent Notice content.
      * @param string $noticeType Notice type.
-     * @param bool $isDismissible Is dismissible.
+     * @param bool $dismissible Is dismissible.
      * @param int $priority Notice priority.
      */
-    public function __construct($noticeContent, $noticeType = 'info', $isDismissible = false, $priority = 10)
+    public function __construct($noticeContent, $noticeType = 'info', $dismissible = false, $priority = 10)
     {
         $this->noticeContent = $noticeContent;
-        $this->noticeType = $noticeType;
-        $this->isDismissible = $isDismissible;
-        $this->priority = $priority;
+        $this->noticeType    = $noticeType;
+        $this->dismissible   = $dismissible;
+        $this->priority      = $priority;
         $this->addAction();
     }
 
@@ -110,15 +110,15 @@ class Notice
      */
     public function isDismissible()
     {
-        return $this->isDismissible;
+        return $this->dismissible;
     }
 
     /**
-     * @param bool $isDismissible
+     * @param bool $dismissible
      */
-    public function setIsDismissible($isDismissible)
+    public function setDismissible($dismissible)
     {
-        $this->isDismissible = $isDismissible;
+        $this->dismissible = $dismissible;
     }
 
     /**
@@ -135,7 +135,7 @@ class Notice
     public function setPriority($priority)
     {
         $this->priority = $priority;
-        if ($this->isActionAdded) {
+        if ($this->actionAdded) {
             $this->removeAction();
             $this->addAction();
         }
@@ -146,17 +146,17 @@ class Notice
      */
     protected function addAction()
     {
-        if (!$this->isActionAdded) {
+        if (!$this->actionAdded) {
             add_action('admin_notices', [$this, 'showNotice'], $this->priority);
-            $this->isActionAdded = true;
+            $this->actionAdded = true;
         }
     }
 
     protected function removeAction()
     {
-        if ($this->isActionAdded) {
+        if ($this->actionAdded) {
             remove_action('admin_notices', [$this, 'showNotice'], $this->priority);
-            $this->isActionAdded = false;
+            $this->actionAdded = false;
         }
     }
 
@@ -172,7 +172,7 @@ class Notice
         } else {
             $notice_class = 'notice notice-' . $this->noticeType;
         }
-        if ($this->isDismissible) {
+        if ($this->dismissible) {
             $notice_class .= ' is-dismissible';
         }
         return $notice_class;
