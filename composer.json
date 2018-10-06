@@ -25,7 +25,8 @@
         "wimg/php-compatibility": "^8"
     },
     "autoload": {
-		"psr-4": {"WPDesk\\Notice\\": "src/WPDesk/Notice/"}
+		"psr-4": {"WPDesk\\Notice\\": "src/WPDesk/Notice/"},
+        "files": ["src/WPDesk/functions.php"]
     },
     "autoload-dev": {
     },

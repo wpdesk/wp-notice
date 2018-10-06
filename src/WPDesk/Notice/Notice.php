@@ -59,18 +59,86 @@ class Notice
     /**
      * WPDesk_Flexible_Shipping_Notice constructor.
      *
-     * @param string $noticeType Notice type.
      * @param string $noticeContent Notice content.
+     * @param string $noticeType Notice type.
      * @param bool $isDismissible Is dismissible.
      * @param int $priority Notice priority.
      */
-    public function __construct($noticeType, $noticeContent, $isDismissible = false, $priority = 10)
+    public function __construct($noticeContent, $noticeType = 'info', $isDismissible = false, $priority = 10)
     {
-        $this->noticeType = $noticeType;
         $this->noticeContent = $noticeContent;
+        $this->noticeType = $noticeType;
         $this->isDismissible = $isDismissible;
         $this->priority = $priority;
         $this->addAction();
+    }
+
+    /**
+     * @return string
+     */
+    public function getNoticeContent()
+    {
+        return $this->noticeContent;
+    }
+
+    /**
+     * @param string $noticeContent
+     */
+    public function setNoticeContent($noticeContent)
+    {
+        $this->noticeContent = $noticeContent;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNoticeType()
+    {
+        return $this->noticeType;
+    }
+
+    /**
+     * @param string $noticeType
+     */
+    public function setNoticeType($noticeType)
+    {
+        $this->noticeType = $noticeType;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDismissible()
+    {
+        return $this->isDismissible;
+    }
+
+    /**
+     * @param bool $isDismissible
+     */
+    public function setIsDismissible($isDismissible)
+    {
+        $this->isDismissible = $isDismissible;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param int $priority
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+        if ($this->isActionAdded) {
+            $this->removeAction();
+            $this->addAction();
+        }
     }
 
     /**

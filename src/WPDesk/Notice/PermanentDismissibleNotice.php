@@ -26,15 +26,15 @@ class PermanentDismissibleNotice extends Notice
     /**
      * WPDesk_Flexible_Shipping_Notice constructor.
      *
-     * @param string $noticeType Notice type.
      * @param string $noticeContent Notice content.
+     * @param string $noticeType Notice type.
      * @param string $noticeName Notice dismiss option name.
      * @param int    $priority Priority
      */
 
-    public function __construct($noticeType, $noticeContent, $noticeName, $priority = 10)
+    public function __construct($noticeContent, $noticeType, $noticeName, $priority = 10)
     {
-        parent::__construct($noticeType, $noticeContent, true, $priority);
+        parent::__construct($noticeContent, $noticeType, true, $priority);
         $this->noticeName = $noticeName;
         $this->noticeDismissOptionName = static::OPTION_NAME_PREFIX . $noticeName;
         if (self::OPTION_VALUE_DISMISSED === get_option($this->noticeDismissOptionName, '')) {
