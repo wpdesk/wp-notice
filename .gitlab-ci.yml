@@ -12,7 +12,6 @@ variables:
 
 stages:
   - tools
-  - pre-tools
   - tests
   - pre-deploy
   - deploy
@@ -181,7 +180,7 @@ integration test current woocommerce:
 apigen docs:
   image:
     name: wpdesknet/apigen
-  stage: pre-tools
+  stage: pre-deploy
   artifacts:
     expire_in: 1 day
     name: "docs"
@@ -207,6 +206,9 @@ pages:
     expire_in: 1 day
     paths:
       - public
+  only:
+    - tags
+    - branches
 
 build to deploy:
   image: wpdesknet/phpunit-woocommerce:4-0
