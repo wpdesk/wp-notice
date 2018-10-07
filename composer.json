@@ -22,6 +22,7 @@
         "squizlabs/php_codesniffer": "^3.0.2",
         "mockery/mockery": "*",
         "10up/wp_mock": "*",
+        "phpdocumentor/phpdocumentor": "2.*",
         "wimg/php-compatibility": "^8"
     },
     "autoload": {
