@@ -14,7 +14,7 @@ class TestFunctions extends WP_UnitTestCase
      */
     public function testWPDeskNotice()
     {
-        $notice = WPDeskNotice('test');
+        $notice = wpdesk_notice('test');
 
         $this->assertInstanceOf(Notice::class, $notice);
     }
@@ -24,7 +24,7 @@ class TestFunctions extends WP_UnitTestCase
      */
     public function testWPDeskPermanentDismissibleNotice()
     {
-        $notice = WPDeskPermanentDismissibleNotice('test');
+        $notice = wpdesk_permanent_dismissible_notice('test');
 
         $this->assertInstanceOf(PermanentDismissibleNotice::class, $notice);
     }
