@@ -4,6 +4,8 @@ namespace WPDesk\Notice;
 
 /**
  * Class PermanentDismissibleNotice
+ *
+ * WordPress admin dismissible notice.
  * @package WPDesk\Notice
  */
 class PermanentDismissibleNotice extends Notice

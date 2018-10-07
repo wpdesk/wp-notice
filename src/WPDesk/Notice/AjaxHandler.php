@@ -7,6 +7,9 @@ use WPDesk\PluginBuilder\Plugin\PluginAccess;
 
 /**
  * Class AjaxHandler
+ *
+ * AjaxHandler for dismissible notices.
+ *
  * @package WPDesk\Notice
  */
 class AjaxHandler implements HookablePluginDependant

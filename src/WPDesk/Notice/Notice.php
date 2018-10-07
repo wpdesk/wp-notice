@@ -4,6 +4,8 @@ namespace WPDesk\Notice;
 
 /**
  * Class Notice
+ *
+ * WordPress admin notice.
  * @package WPDesk\Notice
  */
 class Notice

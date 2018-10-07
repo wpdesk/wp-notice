@@ -18,6 +18,8 @@ function WPDeskNotice($noticeContent, $noticeType = 'info', $dismissible = false
 /**
  * Creates Notice.
  *
+ * Alias for {@see WPDeskNotice()} function.
+ *
  * @param string $noticeContent Notice content.
  * @param string $noticeType Notice type.
  * @param bool   $dismissible Dismissible notice.
@@ -46,6 +48,8 @@ function WPDeskPermanentDismissibleNotice($noticeContent, $noticeType = 'info', 
 
 /**
  * Creates Permanent Dismissible Notice.
+ *
+ * Alias for {@see WPDeskPermanentDismissibleNotice()} function.
  *
  * @param string $noticeContent Notice content.
  * @param string $noticeType Notice type.
