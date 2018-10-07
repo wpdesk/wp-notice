@@ -63,6 +63,8 @@ class AjaxHandler implements HookablePluginDependant
 
     /**
      * Process AJAX notice dismiss.
+     *
+     * Updates corresponded WordPress option and fires wpdesk_notice_dismissed_notice action with notice name.
      */
     public function processAjaxNoticeDismiss()
     {
