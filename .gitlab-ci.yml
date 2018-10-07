@@ -195,6 +195,7 @@ apigen docs:
     - tags
 
 pages:
+  stage: deploy
   dependencies:
     - apigen docs
   script:
