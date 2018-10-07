@@ -45,14 +45,15 @@ require_once('/path/to/notice/src/init.php');
 Simple usage looks like:
 
 ```php
+$notice = wpdesk_notice('Notice text goes here');
+
+// Is equivalent to:
 $notice = WPDeskNotice('Notice text goes here');
 
 // Is equivalent to:
-
 $notice = \WPDesk\Notice\Factory::notice('Notice text goes here');
 
 // Is equivalent to:
-
 $notice = new \WPDesk\Notice\Notice('Notice text goes here'); 
 ```
 
