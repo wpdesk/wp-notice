@@ -3,8 +3,7 @@
 namespace WPDesk\Notice;
 
 /**
- * Class Notice.
- *
+ * Class PermanentDismissibleNotice
  * @package WPDesk\Notice
  */
 class PermanentDismissibleNotice extends Notice

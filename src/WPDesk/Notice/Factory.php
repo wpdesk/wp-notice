@@ -3,8 +3,7 @@
 namespace WPDesk\Notice;
 
 /**
- * Class Notice.
- *
+ * Class Factory
  * @package WPDesk\Notice
  */
 class Factory

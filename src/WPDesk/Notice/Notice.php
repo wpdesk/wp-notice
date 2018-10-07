@@ -3,8 +3,7 @@
 namespace WPDesk\Notice;
 
 /**
- * Class Notice.
- *
+ * Class Notice
  * @package WPDesk\Notice
  */
 class Notice

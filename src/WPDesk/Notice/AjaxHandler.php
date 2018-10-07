@@ -6,8 +6,7 @@ use WPDesk\PluginBuilder\Plugin\HookablePluginDependant;
 use WPDesk\PluginBuilder\Plugin\PluginAccess;
 
 /**
- * Class Notice.
- *
+ * Class AjaxHandler
  * @package WPDesk\Notice
  */
 class AjaxHandler implements HookablePluginDependant
