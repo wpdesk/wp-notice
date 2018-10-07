@@ -195,7 +195,6 @@ apigen docs:
     - tags
 
 pages:
-  stage: deploy
   dependencies:
     - apigen docs
   script:
@@ -208,6 +207,7 @@ pages:
       - public
   only:
     - tags
+    - branches
 
 build to deploy:
   image: wpdesknet/phpunit-woocommerce:4-0
