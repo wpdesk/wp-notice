@@ -61,4 +61,4 @@ Notice must be used before WordPress action `admin_notices`. WordPress admin act
 
 ## Project documentation
 
-https://wpdesk.gitlab.io/wp-notice/index.html 
+PHPDoc: https://wpdesk.gitlab.io/wp-notice/index.html 
