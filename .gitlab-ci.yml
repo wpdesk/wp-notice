@@ -193,7 +193,6 @@ apigen docs:
     - php /app/hooks-docs.php ${CI_PROJECT_DIR}
   only:
     - tags
-    - branches
 
 pages:
   stage: deploy
@@ -209,7 +208,6 @@ pages:
       - public
   only:
     - tags
-    - branches
 
 build to deploy:
   image: wpdesknet/phpunit-woocommerce:4-0
