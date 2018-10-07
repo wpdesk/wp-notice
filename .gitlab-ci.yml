@@ -180,7 +180,7 @@ integration test current woocommerce:
 apigen docs:
   image:
     name: wpdesknet/apigen
-  stage: deploy
+  stage: pre-deploy
   artifacts:
     expire_in: 1 day
     name: "docs"
@@ -193,6 +193,7 @@ apigen docs:
     - php /app/hooks-docs.php ${CI_PROJECT_DIR}
   only:
     - tags
+    - branches
 
 pages:
   stage: deploy
