@@ -41,8 +41,8 @@ class TestPermanentDismissinleNotice extends WP_UnitTestCase
     public function testShowNotice()
     {
         $notice = new PermanentDismissibleNotice(
-            PermanentDismissibleNotice::NOTICE_TYPE_INFO,
             'test',
+            PermanentDismissibleNotice::NOTICE_TYPE_INFO,
             'test_name'
         );
 

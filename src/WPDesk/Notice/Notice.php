@@ -3,8 +3,9 @@
 namespace WPDesk\Notice;
 
 /**
- * Class Notice.
+ * Class Notice
  *
+ * WordPress admin notice.
  * @package WPDesk\Notice
  */
 class Notice
@@ -34,7 +35,7 @@ class Notice
      *
      * @var bool
      */
-    protected $isDismissible;
+    protected $dismissible;
 
     /**
      * Notice hook priority.
@@ -46,7 +47,7 @@ class Notice
      * Is action added?
      * @var bool
      */
-    private $isActionAdded = false;
+    private $actionAdded = false;
 
     /**
      * Attributes.
@@ -59,18 +60,86 @@ class Notice
     /**
      * WPDesk_Flexible_Shipping_Notice constructor.
      *
-     * @param string $noticeType Notice type.
      * @param string $noticeContent Notice content.
-     * @param bool $isDismissible Is dismissible.
+     * @param string $noticeType Notice type.
+     * @param bool $dismissible Is dismissible.
      * @param int $priority Notice priority.
      */
-    public function __construct($noticeType, $noticeContent, $isDismissible = false, $priority = 10)
+    public function __construct($noticeContent, $noticeType = 'info', $dismissible = false, $priority = 10)
+    {
+        $this->noticeContent = $noticeContent;
+        $this->noticeType    = $noticeType;
+        $this->dismissible   = $dismissible;
+        $this->priority      = $priority;
+        $this->addAction();
+    }
+
+    /**
+     * @return string
+     */
+    public function getNoticeContent()
+    {
+        return $this->noticeContent;
+    }
+
+    /**
+     * @param string $noticeContent
+     */
+    public function setNoticeContent($noticeContent)
+    {
+        $this->noticeContent = $noticeContent;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNoticeType()
+    {
+        return $this->noticeType;
+    }
+
+    /**
+     * @param string $noticeType
+     */
+    public function setNoticeType($noticeType)
     {
         $this->noticeType = $noticeType;
-        $this->noticeContent = $noticeContent;
-        $this->isDismissible = $isDismissible;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDismissible()
+    {
+        return $this->dismissible;
+    }
+
+    /**
+     * @param bool $dismissible
+     */
+    public function setDismissible($dismissible)
+    {
+        $this->dismissible = $dismissible;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param int $priority
+     */
+    public function setPriority($priority)
+    {
         $this->priority = $priority;
-        $this->addAction();
+        if ($this->actionAdded) {
+            $this->removeAction();
+            $this->addAction();
+        }
     }
 
     /**
@@ -78,17 +147,17 @@ class Notice
      */
     protected function addAction()
     {
-        if (!$this->isActionAdded) {
+        if (!$this->actionAdded) {
             add_action('admin_notices', [$this, 'showNotice'], $this->priority);
-            $this->isActionAdded = true;
+            $this->actionAdded = true;
         }
     }
 
     protected function removeAction()
     {
-        if ($this->isActionAdded) {
+        if ($this->actionAdded) {
             remove_action('admin_notices', [$this, 'showNotice'], $this->priority);
-            $this->isActionAdded = false;
+            $this->actionAdded = false;
         }
     }
 
@@ -104,7 +173,7 @@ class Notice
         } else {
             $notice_class = 'notice notice-' . $this->noticeType;
         }
-        if ($this->isDismissible) {
+        if ($this->dismissible) {
             $notice_class .= ' is-dismissible';
         }
         return $notice_class;

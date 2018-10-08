@@ -45,7 +45,20 @@ require_once('/path/to/notice/src/init.php');
 Simple usage looks like:
 
 ```php
-$notice = new \WPDesk\Notice\Notice( 'info', 'Notice text goes here' ); 
+$notice = wpdesk_notice('Notice text goes here');
+
+// Is equivalent to:
+$notice = WPDeskNotice('Notice text goes here');
+
+// Is equivalent to:
+$notice = \WPDesk\Notice\Factory::notice('Notice text goes here');
+
+// Is equivalent to:
+$notice = new \WPDesk\Notice\Notice('Notice text goes here'); 
 ```
 
-Notice must be used before WordPress action `admin_notices`. WordPress admin actions order is listed [here](https://codex.wordpress.org/Plugin_API/Action_Reference#Actions_Run_During_an_Admin_Page_Request). 
+Notice must be used before WordPress action `admin_notices`. WordPress admin actions order is listed [here](https://codex.wordpress.org/Plugin_API/Action_Reference#Actions_Run_During_an_Admin_Page_Request).
+
+## Project documentation
+
+PHPDoc: https://wpdesk.gitlab.io/wp-notice/index.html 
