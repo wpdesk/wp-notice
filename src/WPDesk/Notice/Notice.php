@@ -205,12 +205,27 @@ class Notice
         return $attribute_string;
     }
 
+    private function addParagraphToConten()
+    {
+        if (0 === strpos($this->noticeContent, '<p>')) {
+            return false;
+        }
+        if (0 === strpos($this->noticeContent, '<div>') || 0 === strpos($this->noticeContent, '<div ')) {
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Show notice;
      */
     public function showNotice()
     {
-        echo sprintf('<div %1$s>%2$s</div>', $this->getAttributesAsString(), $this->noticeContent);
+        $noticeFormat = '<div %1$s>%2$s</div>';
+        if ($this->addParagraphToConten()) {
+            $noticeFormat = '<div %1$s><p>%2$s</p></div>';
+        }
+        echo sprintf($noticeFormat, $this->getAttributesAsString(), $this->noticeContent);
     }
 
 }
