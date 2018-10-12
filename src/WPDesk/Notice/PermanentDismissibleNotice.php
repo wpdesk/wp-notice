@@ -31,11 +31,11 @@ class PermanentDismissibleNotice extends Notice
      * @param string $noticeType Notice type.
      * @param string $noticeName Notice dismiss option name.
      * @param int    $priority Priority
+     * @param array $attributes Attributes.
      */
-
-    public function __construct($noticeContent, $noticeType, $noticeName, $priority = 10)
+    public function __construct($noticeContent, $noticeType, $noticeName, $priority = 10, $attributes = array())
     {
-        parent::__construct($noticeContent, $noticeType, true, $priority);
+        parent::__construct($noticeContent, $noticeType, true, $priority, $attributes);
         $this->noticeName = $noticeName;
         $this->noticeDismissOptionName = static::OPTION_NAME_PREFIX . $noticeName;
         if (self::OPTION_VALUE_DISMISSED === get_option($this->noticeDismissOptionName, '')) {
