@@ -64,13 +64,20 @@ class Notice
      * @param string $noticeType Notice type.
      * @param bool $dismissible Is dismissible.
      * @param int $priority Notice priority.
+     * @param array $attributes Attributes.
      */
-    public function __construct($noticeContent, $noticeType = 'info', $dismissible = false, $priority = 10)
-    {
+    public function __construct(
+        $noticeContent,
+        $noticeType = 'info',
+        $dismissible = false,
+        $priority = 10,
+        $attributes = array()
+    ) {
         $this->noticeContent = $noticeContent;
         $this->noticeType    = $noticeType;
         $this->dismissible   = $dismissible;
         $this->priority      = $priority;
+        $this->attributes    = $attributes;
         $this->addAction();
     }
 
@@ -176,6 +183,9 @@ class Notice
         if ($this->dismissible) {
             $notice_class .= ' is-dismissible';
         }
+        if (isset($this->attributes['class'])) {
+            $notice_class .= $this->attributes['class'];
+        }
         return $notice_class;
     }
 
@@ -187,6 +197,9 @@ class Notice
     protected function getAttributesAsString()
     {
         $attribute_string = sprintf('class="%1$s"', esc_attr($this->getNoticeClass()));
+        foreach ($this->attributes as $attribute_name => $attribute_value) {
+            $attribute_string .= sprintf(' %1$s="%2$s"', esc_html($attribute_name), esc_attr($attribute_value));
+        }
         return $attribute_string;
     }
 
