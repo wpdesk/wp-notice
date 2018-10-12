@@ -198,7 +198,9 @@ class Notice
     {
         $attribute_string = sprintf('class="%1$s"', esc_attr($this->getNoticeClass()));
         foreach ($this->attributes as $attribute_name => $attribute_value) {
-            $attribute_string .= sprintf(' %1$s="%2$s"', esc_html($attribute_name), esc_attr($attribute_value));
+            if ('class' !== $attribute_name) {
+                $attribute_string .= sprintf(' %1$s="%2$s"', esc_html($attribute_name), esc_attr($attribute_value));
+            }
         }
         return $attribute_string;
     }
