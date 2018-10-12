@@ -184,7 +184,7 @@ class Notice
             $notice_class .= ' is-dismissible';
         }
         if (isset($this->attributes['class'])) {
-            $notice_class .= $this->attributes['class'];
+            $notice_class .= ' ' . $this->attributes['class'];
         }
         return $notice_class;
     }
@@ -210,7 +210,7 @@ class Notice
      */
     public function showNotice()
     {
-        echo sprintf('<div %1$s><p>%2$s</p></div>', $this->getAttributesAsString(), $this->noticeContent);
+        echo sprintf('<div %1$s>%2$s</div>', $this->getAttributesAsString(), $this->noticeContent);
     }
 
 }
