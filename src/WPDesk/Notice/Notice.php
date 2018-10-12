@@ -205,7 +205,7 @@ class Notice
         return $attribute_string;
     }
 
-    private function addParagraphToConten()
+    private function addParagraphToContent()
     {
         if (0 === strpos($this->noticeContent, '<p>')) {
             return false;
@@ -222,7 +222,7 @@ class Notice
     public function showNotice()
     {
         $noticeFormat = '<div %1$s>%2$s</div>';
-        if ($this->addParagraphToConten()) {
+        if ($this->addParagraphToContent()) {
             $noticeFormat = '<div %1$s><p>%2$s</p></div>';
         }
         echo sprintf($noticeFormat, $this->getAttributesAsString(), $this->noticeContent);
