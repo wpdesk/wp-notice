@@ -19,6 +19,8 @@ class AjaxHandler implements HookablePluginDependant
 
     const POST_FIELD_NOTICE_NAME = 'notice_name';
 
+    const POST_FIELD_NONCE = 'nonce';
+
     const SCRIPTS_VERSION = '2';
     const SCRIPT_HANDLE = 'wpdesk_notice';
 
@@ -62,13 +64,29 @@ class AjaxHandler implements HookablePluginDependant
     }
 
     /**
+     * Is request valid?
+     *
+     * @return bool
+     */
+    private function isRequestValid()
+    {
+        if (isset($_POST[self::POST_FIELD_NOTICE_NAME])
+            && isset($_POST[self::POST_FIELD_NONCE])
+            && wp_verify_nonce($_POST[self::POST_FIELD_NONCE], PermanentDismissibleNotice::NONCE_ACTION)
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Process AJAX notice dismiss.
      *
      * Updates corresponded WordPress option and fires wpdesk_notice_dismissed_notice action with notice name.
      */
     public function processAjaxNoticeDismiss()
     {
-        if (isset($_POST[self::POST_FIELD_NOTICE_NAME])) {
+        if ($this->isRequestValid()) {
             $noticeName = $_POST[self::POST_FIELD_NOTICE_NAME];
             update_option(
                 PermanentDismissibleNotice::OPTION_NAME_PREFIX . $noticeName,

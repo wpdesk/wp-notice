@@ -46,8 +46,10 @@ class TestPermanentDismissinleNotice extends WP_UnitTestCase
             'test_name'
         );
 
+        $nonce = wp_create_nonce(PermanentDismissibleNotice::NONCE_ACTION);
+
         $this->expectOutputString(
-            '<div class="notice notice-info is-dismissible"data-notice-name="test_name"><p>test</p></div>'
+            '<div class="notice notice-info is-dismissible" data-notice-name="test_name" data-notice-nonce="' . $nonce . '"><p>test</p></div>'
         );
 
         $notice->showNotice();

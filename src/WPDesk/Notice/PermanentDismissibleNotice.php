@@ -14,6 +14,8 @@ class PermanentDismissibleNotice extends Notice
     const OPTION_NAME_PREFIX = 'wpdesk_notice_dismiss_';
     const OPTION_VALUE_DISMISSED = '1';
 
+    const NONCE_ACTION = 'wpdesk_notice_dismiss';
+
     /**
      * @var string
      */
@@ -60,7 +62,8 @@ class PermanentDismissibleNotice extends Notice
     protected function getAttributesAsString()
     {
         $attributesAsString = parent::getAttributesAsString();
-        $attributesAsString .= sprintf('data-notice-name="%1$s"', esc_attr($this->noticeName));
+        $attributesAsString .= sprintf(' data-notice-name="%1$s"', esc_attr($this->noticeName));
+        $attributesAsString .= sprintf(' data-notice-nonce="%1$s"', esc_attr(wp_create_nonce(static::NONCE_ACTION)));
         return $attributesAsString;
     }
 

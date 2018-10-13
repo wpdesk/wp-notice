@@ -40,8 +40,10 @@ class TestAjaxHandler extends WP_UnitTestCase
         );
     }
 
-    public function testProcessAjaxNoticeDismiss() {
+    public function testProcessAjaxNoticeDismiss()
+    {
         $_POST[AjaxHandler::POST_FIELD_NOTICE_NAME] = self::NOTICE_NAME;
+        $_POST[AjaxHandler::POST_FIELD_NONCE] = wp_create_nonce(PermanentDismissibleNotice::NONCE_ACTION);
 
         $ajaxHandler = new AjaxHandler(self::ASSETS_URL);
         $ajaxHandler->processAjaxNoticeDismiss();
