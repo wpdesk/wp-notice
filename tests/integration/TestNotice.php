@@ -124,4 +124,36 @@ class TestNotice extends WP_UnitTestCase
         $this->assertEquals(array('class' => 'test'), $notice->getAttributes());
     }
 
+    public function addParagraphToContentWithP()
+    {
+        $notice = new Notice('<p>test</p>');
+
+        $this->expectOutputString(
+            '<div class="notice notice-info is-dismissible"><p>test</p></div>'
+        );
+
+        $notice->showNotice();
+    }
+
+    public function addParagraphToContentWithDiv()
+    {
+        $notice = new Notice('<p>test</p>');
+
+        $this->expectOutputString(
+            '<div class="notice notice-info is-dismissible"><div>test</div></div>'
+        );
+
+        $notice->showNotice();
+    }
+
+    public function addParagraphToContentWithSpan()
+    {
+        $notice = new Notice('<span>test</span>');
+
+        $this->expectOutputString(
+            '<div class="notice notice-info is-dismissible"><p><span>test</span></p></div>'
+        );
+
+        $notice->showNotice();
+    }
 }

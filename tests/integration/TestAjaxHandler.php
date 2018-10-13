@@ -45,12 +45,24 @@ class TestAjaxHandler extends WP_UnitTestCase
         $_POST[AjaxHandler::POST_FIELD_NOTICE_NAME] = self::NOTICE_NAME;
         $_POST[AjaxHandler::POST_FIELD_NONCE] = wp_create_nonce(PermanentDismissibleNotice::NONCE_ACTION);
 
+        $this->assertEquals(
+            0,
+            did_action('wpdesk_notice_dismissed_notice'),
+            'wpdesk_notice_dismissed_notice should be not executed here!'
+        );
+
         $ajaxHandler = new AjaxHandler(self::ASSETS_URL);
         $ajaxHandler->processAjaxNoticeDismiss();
 
         $this->assertEquals(
             PermanentDismissibleNotice::OPTION_VALUE_DISMISSED,
             get_option(PermanentDismissibleNotice::OPTION_NAME_PREFIX . self::NOTICE_NAME)
+        );
+
+        $this->assertEquals(
+            1,
+            did_action('wpdesk_notice_dismissed_notice'),
+            'wpdesk_notice_dismissed_notice should be executed once here!'
         );
     }
 
