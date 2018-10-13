@@ -59,6 +59,18 @@ class TestNotice extends WP_UnitTestCase
         $notice->showNotice();
     }
 
+    public function testShowNoticeAttributes()
+    {
+        $attributes = array('class'=>'test-class', 'id'=>'test_id');
+        $notice = new Notice('test', Notice::NOTICE_TYPE_INFO, true, 10, $attributes);
+
+        $this->expectOutputString(
+            '<div class="notice notice-info is-dismissible test-class" id="test_id"><p>test</p></div>'
+        );
+
+        $notice->showNotice();
+    }
+
     public function testNoticeContent()
     {
         $noticeContent = 'test';
@@ -100,6 +112,16 @@ class TestNotice extends WP_UnitTestCase
 
         $notice->setPriority(20);
         $this->assertEquals(20, $notice->getPriority());
+    }
+
+    public function testAttributes()
+    {
+        $notice = new Notice('test');
+
+        $this->assertEquals(array(), $notice->getAttributes());
+
+        $notice->setAttributes(array('class' => 'test'));
+        $this->assertEquals(array('class' => 'test'), $notice->getAttributes());
     }
 
 }

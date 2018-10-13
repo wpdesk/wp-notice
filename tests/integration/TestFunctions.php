@@ -2,6 +2,8 @@
 
 use \WPDesk\Notice\Notice;
 use \WPDesk\Notice\PermanentDismissibleNotice;
+use \WPDesk\Notice\DismissibleNotice;
+use \WPDesk\Notice\NoDismissibleNotice;
 
 /**
  * Class TestFunctions
@@ -27,6 +29,26 @@ class TestFunctions extends WP_UnitTestCase
         $notice = wpdesk_permanent_dismissible_notice('test');
 
         $this->assertInstanceOf(PermanentDismissibleNotice::class, $notice);
+    }
+
+    /**
+     * Test WPDeskDismissibleNotice function.
+     */
+    public function testWPDeskDismissibleNotice()
+    {
+        $notice = wpdesk_dismissible_notice('test');
+
+        $this->assertInstanceOf(DismissibleNotice::class, $notice);
+    }
+
+    /**
+     * Test WPDeskDismissibleNotice function.
+     */
+    public function testWPDeskNoDismissibleNotice()
+    {
+        $notice = wpdesk_no_dismissible_notice('test');
+
+        $this->assertInstanceOf(NoDismissibleNotice::class, $notice);
     }
 
 }

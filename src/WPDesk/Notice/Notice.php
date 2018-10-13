@@ -58,7 +58,7 @@ class Notice
 
 
     /**
-     * WPDesk_Flexible_Shipping_Notice constructor.
+     * Notice constructor.
      *
      * @param string $noticeContent Notice content.
      * @param string $noticeType Notice type.
@@ -147,6 +147,22 @@ class Notice
             $this->removeAction();
             $this->addAction();
         }
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param string[] $attributes Attributes.
+     */
+    public function setAttributes(array $attributes)
+    {
+        $this->attributes = $attributes;
     }
 
     /**

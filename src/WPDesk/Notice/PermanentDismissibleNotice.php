@@ -25,7 +25,7 @@ class PermanentDismissibleNotice extends Notice
     private $noticeDismissOptionName;
 
     /**
-     * WPDesk_Flexible_Shipping_Notice constructor.
+     * PermanentDismissibleNotice constructor.
      *
      * @param string $noticeContent Notice content.
      * @param string $noticeType Notice type.
