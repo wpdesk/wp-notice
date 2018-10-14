@@ -224,7 +224,7 @@ class Notice
 
     private function addParagraphToContent()
     {
-        if (0 === strpos($this->noticeContent, '<p>')) {
+        if (0 === strpos($this->noticeContent, '<p>') || 0 === strpos($this->noticeContent, '<p ')) {
             return false;
         }
         if (0 === strpos($this->noticeContent, '<div>') || 0 === strpos($this->noticeContent, '<div ')) {

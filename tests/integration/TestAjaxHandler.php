@@ -3,6 +3,9 @@
 use \WPDesk\Notice\AjaxHandler;
 use \WPDesk\Notice\PermanentDismissibleNotice;
 
+/**
+ * Class TestAjaxHandler
+ */
 class TestAjaxHandler extends WP_UnitTestCase
 {
 
@@ -63,6 +66,29 @@ class TestAjaxHandler extends WP_UnitTestCase
             1,
             did_action('wpdesk_notice_dismissed_notice'),
             'wpdesk_notice_dismissed_notice should be executed once here!'
+        );
+    }
+
+    public function testIsRequestValid()
+    {
+        $this->assertEquals(
+            0,
+            did_action('wpdesk_notice_dismissed_notice'),
+            'wpdesk_notice_dismissed_notice should be not executed here!'
+        );
+
+        $ajaxHandler = new AjaxHandler(self::ASSETS_URL);
+        $ajaxHandler->processAjaxNoticeDismiss();
+
+        $this->assertEquals(
+            '0',
+            get_option(PermanentDismissibleNotice::OPTION_NAME_PREFIX . self::NOTICE_NAME, '0')
+        );
+
+        $this->assertEquals(
+            0,
+            did_action('wpdesk_notice_dismissed_notice'),
+            'wpdesk_notice_dismissed_notice should be not executed here!'
         );
     }
 

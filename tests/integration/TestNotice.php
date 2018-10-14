@@ -50,6 +50,15 @@ class TestNotice extends WP_UnitTestCase
         $notice->showNotice();
     }
 
+    public function testShowNoticeUpdated()
+    {
+        $notice = new Notice('test', Notice::NOTICE_TYPE_UPDATED);
+
+        $this->expectOutputString('<div class="notice updated"><p>test</p></div>');
+
+        $notice->showNotice();
+    }
+
     public function testShowNoticeDismissible()
     {
         $notice = new Notice('test', Notice::NOTICE_TYPE_INFO, true);
@@ -124,34 +133,34 @@ class TestNotice extends WP_UnitTestCase
         $this->assertEquals(array('class' => 'test'), $notice->getAttributes());
     }
 
-    public function addParagraphToContentWithP()
+    public function testAddParagraphToContentWithP()
     {
         $notice = new Notice('<p>test</p>');
 
         $this->expectOutputString(
-            '<div class="notice notice-info is-dismissible"><p>test</p></div>'
+            '<div class="notice notice-info"><p>test</p></div>'
         );
 
         $notice->showNotice();
     }
 
-    public function addParagraphToContentWithDiv()
+    public function testAddParagraphToContentWithDiv()
     {
-        $notice = new Notice('<p>test</p>');
+        $notice = new Notice('<div>test</div>');
 
         $this->expectOutputString(
-            '<div class="notice notice-info is-dismissible"><div>test</div></div>'
+            '<div class="notice notice-info"><div>test</div></div>'
         );
 
         $notice->showNotice();
     }
 
-    public function addParagraphToContentWithSpan()
+    public function testAddParagraphToContentWithSpan()
     {
         $notice = new Notice('<span>test</span>');
 
         $this->expectOutputString(
-            '<div class="notice notice-info is-dismissible"><p><span>test</span></p></div>'
+            '<div class="notice notice-info"><p><span>test</span></p></div>'
         );
 
         $notice->showNotice();
