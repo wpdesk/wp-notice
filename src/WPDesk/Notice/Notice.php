@@ -15,6 +15,7 @@ class Notice
     const NOTICE_TYPE_WARNING = 'warning';
     const NOTICE_TYPE_SUCCESS = 'success';
     const NOTICE_TYPE_INFO = 'info';
+    const NOTICE_TYPE_UPDATED = 'updated';
 
     /**
      * Notice type.
