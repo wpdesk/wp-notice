@@ -1,5 +1,6 @@
-/test export-ignore
-/vendor export-ignore
+test export-ignore
+vendor export-ignore
+.editorconfig export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore
 .git export-ignore
@@ -12,4 +13,3 @@ LICENSE.md export-ignore
 phpcs.xml.dist export-ignore
 phpunit-integration.xml export-ignore
 phpunit-unit.xml export-ignore
-
