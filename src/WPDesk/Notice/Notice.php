@@ -156,6 +156,7 @@ class Notice
     {
         if (!$this->actionAdded) {
             add_action('admin_notices', [$this, 'showNotice'], $this->priority);
+            add_action('admin_footer', [$this, 'showNotice'], $this->priority);
             $this->actionAdded = true;
         }
     }
@@ -164,6 +165,7 @@ class Notice
     {
         if ($this->actionAdded) {
             remove_action('admin_notices', [$this, 'showNotice'], $this->priority);
+            remove_action('admin_footer', [$this, 'showNotice'], $this->priority);
             $this->actionAdded = false;
         }
     }
@@ -221,6 +223,7 @@ class Notice
      */
     public function showNotice()
     {
+        $this->removeAction();
         $noticeFormat = '<div %1$s>%2$s</div>';
         if ($this->addParagraphToContent()) {
             $noticeFormat = '<div %1$s><p>%2$s</p></div>';

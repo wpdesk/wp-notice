@@ -12,6 +12,8 @@ class TestNotice extends WP_UnitTestCase
         $notice = new Notice(Notice::NOTICE_TYPE_INFO, 'test', false, $notice_priority);
 
         $this->assertEquals($notice_priority, has_action('admin_notices', [$notice, 'showNotice'], $notice_priority));
+
+        $this->assertEquals($notice_priority, has_action('admin_footer', [$notice, 'showNotice'], $notice_priority));
     }
 
     public function testShowNotice()
@@ -21,6 +23,13 @@ class TestNotice extends WP_UnitTestCase
         $this->expectOutputString('<div class="notice notice-info"><p>test</p></div>');
 
         $notice->showNotice();
+
+        $this->assertFalse(
+            has_action('admin_notices', [$notice, 'showNotice'], 10)
+        );
+        $this->assertFalse(
+            has_action('admin_footer', [$notice, 'showNotice'], 10)
+        );
     }
 
     public function testShowNoticeError()
