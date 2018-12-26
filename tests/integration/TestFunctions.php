@@ -14,9 +14,13 @@ class TestFunctions extends WP_UnitTestCase
      */
     public function testWPDeskNotice()
     {
-        $notice = wpdesk_notice('test');
+        $notice = wpdesk_notice('test function');
 
         $this->assertInstanceOf(Notice::class, $notice);
+
+        $this->expectOutputString('<div class="notice notice-info"><p>test function</p></div>');
+
+        $notice->showNotice();
     }
 
     /**
