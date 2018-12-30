@@ -25,7 +25,7 @@
     },
     "autoload": {
 		"psr-4": {"WPDesk\\Notice\\": "src/WPDesk/Notice/"},
-        "files": ["src/WPDesk/functions.php"]
+        "files": ["src/WPDesk/notice-functions.php"]
     },
     "autoload-dev": {
     },
