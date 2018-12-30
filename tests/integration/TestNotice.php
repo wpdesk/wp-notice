@@ -13,7 +13,14 @@ class TestNotice extends WP_UnitTestCase
 
         $this->assertEquals($notice_priority, has_action('admin_notices', [$notice, 'showNotice'], $notice_priority));
 
-        $this->assertEquals($notice_priority, has_action('admin_footer', [$notice, 'showNotice'], $notice_priority));
+        $this->assertEquals(
+            Notice::ADMIN_FOOTER_BASE_PRIORITY + intval($notice_priority),
+            has_action(
+                'admin_footer',
+                [$notice, 'showNotice'],
+                Notice::ADMIN_FOOTER_BASE_PRIORITY + intval($notice_priority)
+            )
+        );
     }
 
     public function testShowNotice()

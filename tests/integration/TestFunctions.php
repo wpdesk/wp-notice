@@ -24,6 +24,62 @@ class TestFunctions extends WP_UnitTestCase
     }
 
     /**
+     * Test WPDeskNoticeInfo function.
+     */
+    public function testWPDeskNoticeInfo()
+    {
+        $notice = wpdesk_notice_info('test function');
+
+        $this->assertInstanceOf(Notice::class, $notice);
+
+        $this->expectOutputString('<div class="notice notice-info"><p>test function</p></div>');
+
+        $notice->showNotice();
+    }
+
+    /**
+     * Test WPDeskNoticeError function.
+     */
+    public function testWPDeskNoticeError()
+    {
+        $notice = wpdesk_notice_error('test function');
+
+        $this->assertInstanceOf(Notice::class, $notice);
+
+        $this->expectOutputString('<div class="notice notice-error"><p>test function</p></div>');
+
+        $notice->showNotice();
+    }
+
+    /**
+     * Test WPDeskNoticeWarning function.
+     */
+    public function testWPDeskNoticeWarning()
+    {
+        $notice = wpdesk_notice_warning('test function');
+
+        $this->assertInstanceOf(Notice::class, $notice);
+
+        $this->expectOutputString('<div class="notice notice-warning"><p>test function</p></div>');
+
+        $notice->showNotice();
+    }
+
+    /**
+     * Test WPDeskNoticeSuccess function.
+     */
+    public function testWPDeskNoticeSuccess()
+    {
+        $notice = wpdesk_notice_success('test function');
+
+        $this->assertInstanceOf(Notice::class, $notice);
+
+        $this->expectOutputString('<div class="notice notice-success"><p>test function</p></div>');
+
+        $notice->showNotice();
+    }
+
+    /**
      * Test WPDeskPermanentDismissibleNotice function.
      */
     public function testWPDeskPermanentDismissibleNotice()

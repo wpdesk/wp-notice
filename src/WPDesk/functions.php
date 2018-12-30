@@ -33,6 +33,146 @@ function wpdesk_notice($noticeContent, $noticeType = 'info', $dismissible = fals
 }
 
 /**
+ * Creates Notice Info.
+ *
+ * @param string $noticeContent Notice content.
+ * @param bool   $dismissible Dismissible notice.
+ * @param int    $priority Notice priority,
+ *
+ * @return \WPDesk\Notice\Notice
+ */
+function WPDeskNoticeInfo($noticeContent, $dismissible = false, $priority = 10)
+{
+    return \WPDesk\Notice\Factory::notice(
+        $noticeContent,
+        \WPDesk\Notice\Notice::NOTICE_TYPE_INFO,
+        $dismissible,
+        $priority
+    );
+}
+
+/**
+ * Creates Notice Info.
+ *
+ * Alias for {@see WPDeskNoticeInfo()} function.
+ *
+ * @param string $noticeContent Notice content.
+ * @param bool   $dismissible Dismissible notice.
+ * @param int    $priority Notice priority,
+ *
+ * @return \WPDesk\Notice\Notice
+ */
+function wpdesk_notice_info($noticeContent, $dismissible = false, $priority = 10)
+{
+    return WPDeskNoticeInfo($noticeContent, $dismissible, $priority);
+}
+
+/**
+ * Creates Notice Error.
+ *
+ * @param string $noticeContent Notice content.
+ * @param bool   $dismissible Dismissible notice.
+ * @param int    $priority Notice priority,
+ *
+ * @return \WPDesk\Notice\Notice
+ */
+function WPDeskNoticeError($noticeContent, $dismissible = false, $priority = 10)
+{
+    return \WPDesk\Notice\Factory::notice(
+        $noticeContent,
+        \WPDesk\Notice\Notice::NOTICE_TYPE_ERROR,
+        $dismissible,
+        $priority
+    );
+}
+
+/**
+ * Creates Notice Error.
+ *
+ * Alias for {@see WPDeskNoticeError()} function.
+ *
+ * @param string $noticeContent Notice content.
+ * @param bool   $dismissible Dismissible notice.
+ * @param int    $priority Notice priority,
+ *
+ * @return \WPDesk\Notice\Notice
+ */
+function wpdesk_notice_error($noticeContent, $dismissible = false, $priority = 10)
+{
+    return WPDeskNoticeError($noticeContent, $dismissible, $priority);
+}
+
+/**
+ * Creates Notice Warning.
+ *
+ * @param string $noticeContent Notice content.
+ * @param bool   $dismissible Dismissible notice.
+ * @param int    $priority Notice priority,
+ *
+ * @return \WPDesk\Notice\Notice
+ */
+function WPDeskNoticeWarning($noticeContent, $dismissible = false, $priority = 10)
+{
+    return \WPDesk\Notice\Factory::notice(
+        $noticeContent,
+        \WPDesk\Notice\Notice::NOTICE_TYPE_WARNING,
+        $dismissible,
+        $priority
+    );
+}
+
+/**
+ * Creates Notice Warning.
+ *
+ * Alias for {@see WPDeskNoticeWarning()} function.
+ *
+ * @param string $noticeContent Notice content.
+ * @param bool   $dismissible Dismissible notice.
+ * @param int    $priority Notice priority,
+ *
+ * @return \WPDesk\Notice\Notice
+ */
+function wpdesk_notice_warning($noticeContent, $dismissible = false, $priority = 10)
+{
+    return WPDeskNoticeWarning($noticeContent, $dismissible, $priority);
+}
+
+/**
+ * Creates Notice Success.
+ *
+ * @param string $noticeContent Notice content.
+ * @param bool   $dismissible Dismissible notice.
+ * @param int    $priority Notice priority,
+ *
+ * @return \WPDesk\Notice\Notice
+ */
+function WPDeskNoticeSuccess($noticeContent, $dismissible = false, $priority = 10)
+{
+    return \WPDesk\Notice\Factory::notice(
+        $noticeContent,
+        \WPDesk\Notice\Notice::NOTICE_TYPE_SUCCESS,
+        $dismissible,
+        $priority
+    );
+}
+
+/**
+ * Creates Notice Success.
+ *
+ * Alias for {@see WPDeskNoticeSuccess()} function.
+ *
+ * @param string $noticeContent Notice content.
+ * @param bool   $dismissible Dismissible notice.
+ * @param int    $priority Notice priority,
+ *
+ * @return \WPDesk\Notice\Notice
+ */
+function wpdesk_notice_success($noticeContent, $dismissible = false, $priority = 10)
+{
+    return WPDeskNoticeSuccess($noticeContent, $dismissible, $priority);
+}
+
+/**
  * Creates Permanent Dismissible Notice.
  *
  * @param string $noticeContent Notice content.
