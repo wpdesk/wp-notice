@@ -118,4 +118,26 @@ class TestNotice extends WP_UnitTestCase
         $this->assertEquals(20, $notice->getPriority());
     }
 
+    public function testAddAttribute()
+    {
+        $notice = new Notice('test', Notice::NOTICE_TYPE_WARNING);
+
+        $notice->addAttribute('id', 'test_id');
+
+        $this->expectOutputString('<div class="notice notice-warning" id="test_id"><p>test</p></div>');
+
+        $notice->showNotice();
+    }
+
+    public function testAddAttributeClass()
+    {
+        $notice = new Notice('test', Notice::NOTICE_TYPE_WARNING);
+
+        $notice->addAttribute('class', 'test-class');
+
+        $this->expectOutputString('<div class="notice notice-warning test-class"><p>test</p></div>');
+
+        $notice->showNotice();
+    }
+
 }

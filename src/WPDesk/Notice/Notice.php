@@ -167,6 +167,9 @@ class Notice
         }
     }
 
+    /**
+     * Remove action.
+     */
     protected function removeAction()
     {
         if ($this->actionAdded) {
@@ -178,6 +181,17 @@ class Notice
             );
             $this->actionAdded = false;
         }
+    }
+
+    /**
+     * Add attribute.
+     *
+     * @param string $name Name
+     * @param string $value Value.
+     */
+    public function addAttribute($name, $value)
+    {
+        $this->attributes[ $name ] = $value;
     }
 
     /**
