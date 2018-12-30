@@ -66,6 +66,7 @@ class PermanentDismissibleNotice extends Notice
     {
         $attributesAsString = parent::getAttributesAsString();
         $attributesAsString .= sprintf(' data-notice-name="%1$s"', esc_attr($this->noticeName));
+        $attributesAsString .= sprintf(' id="wpdesk-notice-%1$s"', esc_attr($this->noticeName));
         return $attributesAsString;
     }
 

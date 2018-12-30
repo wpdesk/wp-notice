@@ -93,7 +93,7 @@ class TestFunctions extends WP_UnitTestCase
         $this->assertInstanceOf(PermanentDismissibleNotice::class, $notice);
 
         $this->expectOutputString(
-            '<div class="notice notice-info is-dismissible" data-notice-name="test-notice"><p>test function</p></div>'
+            '<div class="notice notice-info is-dismissible" data-notice-name="test-notice" id="wpdesk-notice-test-notice"><p>test function</p></div>'
         );
 
         $notice->showNotice();

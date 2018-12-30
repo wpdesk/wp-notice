@@ -49,7 +49,7 @@ class TestPermanentDismissinleNotice extends WP_UnitTestCase
         );
 
         $this->expectOutputString(
-            '<div class="notice notice-info is-dismissible" data-notice-name="test_name"><p>test</p></div>'
+            '<div class="notice notice-info is-dismissible" data-notice-name="test_name" id="wpdesk-notice-test_name"><p>test</p></div>'
         );
 
         $notice->showNotice();
