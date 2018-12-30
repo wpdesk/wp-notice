@@ -38,11 +38,11 @@ class Factory
      */
     public static function permanentDismissibleNotice(
         $noticeContent = '',
-        $noticeType = '',
         $noticeName = '',
+        $noticeType = '',
         $priority = 10
     ) {
-        return new PermanentDismissibleNotice($noticeType, $noticeContent, $noticeName, $priority);
+        return new PermanentDismissibleNotice($noticeContent, $noticeName, $noticeType, $priority);
     }
 
 }

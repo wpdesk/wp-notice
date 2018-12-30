@@ -28,9 +28,19 @@ class TestFunctions extends WP_UnitTestCase
      */
     public function testWPDeskPermanentDismissibleNotice()
     {
-        $notice = wpdesk_permanent_dismissible_notice('test');
+        $notice = wpdesk_permanent_dismissible_notice(
+            'test function',
+            'test-notice',
+            Notice::NOTICE_TYPE_INFO
+        );
 
         $this->assertInstanceOf(PermanentDismissibleNotice::class, $notice);
+
+        $this->expectOutputString(
+            '<div class="notice notice-info is-dismissible" data-notice-name="test-notice"><p>test function</p></div>'
+        );
+
+        $notice->showNotice();
     }
 
 }

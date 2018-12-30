@@ -37,13 +37,14 @@ function wpdesk_notice($noticeContent, $noticeType = 'info', $dismissible = fals
  *
  * @param string $noticeContent Notice content.
  * @param string $noticeType Notice type.
+ * @param string $noticeName Notice name.
  * @param int    $priority Notice priority.
  *
  * @return \WPDesk\Notice\Notice
  */
-function WPDeskPermanentDismissibleNotice($noticeContent, $noticeType = 'info', $priority = 10)
+function WPDeskPermanentDismissibleNotice($noticeContent, $noticeName, $noticeType = 'info', $priority = 10)
 {
-    return \WPDesk\Notice\Factory::permanentDismissibleNotice($noticeContent, $noticeType, $priority);
+    return \WPDesk\Notice\Factory::permanentDismissibleNotice($noticeContent, $noticeName, $noticeType, $priority);
 }
 
 /**
@@ -52,12 +53,13 @@ function WPDeskPermanentDismissibleNotice($noticeContent, $noticeType = 'info', 
  * Alias for {@see WPDeskPermanentDismissibleNotice()} function.
  *
  * @param string $noticeContent Notice content.
+ * @param string $noticeName Notice name.
  * @param string $noticeType Notice type.
  * @param int    $priority Notice priority.
  *
  * @return \WPDesk\Notice\Notice
  */
-function wpdesk_permanent_dismissible_notice($noticeContent, $noticeType = 'info', $priority = 10)
+function wpdesk_permanent_dismissible_notice($noticeContent, $noticeName, $noticeType = 'info', $priority = 10)
 {
-    return WPDeskPermanentDismissibleNotice($noticeContent, $noticeType, $priority);
+    return WPDeskPermanentDismissibleNotice($noticeContent, $noticeName, $noticeType, $priority);
 }
