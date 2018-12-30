@@ -3,3 +3,4 @@ variables:
   DISABLE_ACCEPTANCE: 1
 
 include: 'https://gitlab.com/wpdesk/gitlab-ci/raw/master/gitlab-ci-1.2.yml'
+
