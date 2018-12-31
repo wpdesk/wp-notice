@@ -1,5 +1,7 @@
 <?php
 
+require_once './vendor/autoload.php';
+
 if (!class_exists('\WPDesk\Notice\AjaxHandler')) {
     require_once './WPDesk/Notice/AjaxHandler.php';
 }
