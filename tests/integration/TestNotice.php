@@ -12,6 +12,15 @@ class TestNotice extends WP_UnitTestCase
         $notice = new Notice(Notice::NOTICE_TYPE_INFO, 'test', false, $notice_priority);
 
         $this->assertEquals($notice_priority, has_action('admin_notices', [$notice, 'showNotice'], $notice_priority));
+
+        $this->assertEquals(
+            Notice::ADMIN_FOOTER_BASE_PRIORITY + intval($notice_priority),
+            has_action(
+                'admin_footer',
+                [$notice, 'showNotice'],
+                Notice::ADMIN_FOOTER_BASE_PRIORITY + intval($notice_priority)
+            )
+        );
     }
 
     public function testShowNotice()
@@ -21,6 +30,13 @@ class TestNotice extends WP_UnitTestCase
         $this->expectOutputString('<div class="notice notice-info"><p>test</p></div>');
 
         $notice->showNotice();
+
+        $this->assertFalse(
+            has_action('admin_notices', [$notice, 'showNotice'], 10)
+        );
+        $this->assertFalse(
+            has_action('admin_footer', [$notice, 'showNotice'], 10)
+        );
     }
 
     public function testShowNoticeError()
@@ -100,6 +116,28 @@ class TestNotice extends WP_UnitTestCase
 
         $notice->setPriority(20);
         $this->assertEquals(20, $notice->getPriority());
+    }
+
+    public function testAddAttribute()
+    {
+        $notice = new Notice('test', Notice::NOTICE_TYPE_WARNING);
+
+        $notice->addAttribute('id', 'test_id');
+
+        $this->expectOutputString('<div class="notice notice-warning" id="test_id"><p>test</p></div>');
+
+        $notice->showNotice();
+    }
+
+    public function testAddAttributeClass()
+    {
+        $notice = new Notice('test', Notice::NOTICE_TYPE_WARNING);
+
+        $notice->addAttribute('class', 'test-class');
+
+        $this->expectOutputString('<div class="notice notice-warning test-class"><p>test</p></div>');
+
+        $notice->showNotice();
     }
 
 }
