@@ -247,6 +247,7 @@ class Notice
      */
     public function showNotice()
     {
+error_log(11);
         $this->removeAction();
         $noticeFormat = '<div %1$s>%2$s</div>';
         if ($this->addParagraphToContent()) {
