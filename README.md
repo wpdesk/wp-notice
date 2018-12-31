@@ -37,7 +37,7 @@ require_once 'vendor/autoload.php';
 If you do not wish to use Composer, you can download the latest release. Then, to use the Notices, include the init.php file.
 
 ```php
-require_once('/path/to/notice/src/init.php');
+require_once('/path/to/notice/src/notice-init.php');
 ```
 
 ## Getting Started
