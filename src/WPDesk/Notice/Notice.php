@@ -75,7 +75,6 @@ class Notice
         $priority = 10,
         $attributes = array()
     ) {
-error_log(15);
         $this->noticeContent = $noticeContent;
         $this->noticeType    = $noticeType;
         $this->dismissible   = $dismissible;
@@ -157,9 +156,7 @@ error_log(15);
      */
     protected function addAction()
     {
-error_log(16);
         if (!$this->actionAdded) {
-error_log(17);
             add_action('admin_notices', [$this, 'showNotice'], $this->priority);
             add_action(
                 'admin_footer',
@@ -250,7 +247,6 @@ error_log(17);
      */
     public function showNotice()
     {
-error_log(51);
         $this->removeAction();
         $noticeFormat = '<div %1$s>%2$s</div>';
         if ($this->addParagraphToContent()) {

@@ -13,7 +13,6 @@ if (!function_exists('WPDeskNotice')) {
      */
     function WPDeskNotice($noticeContent, $noticeType = 'info', $dismissible = false, $priority = 10)
     {
-error_log(12);
         return \WPDesk\Notice\Factory::notice($noticeContent, $noticeType, $dismissible, $priority);
     }
 }
@@ -33,7 +32,6 @@ if (!function_exists('wpdesk_notice')) {
      */
     function wpdesk_notice($noticeContent, $noticeType = 'info', $dismissible = false, $priority = 10)
     {
-error_log(11);
         return WPDeskNotice($noticeContent, $noticeType, $dismissible, $priority);
     }
 }

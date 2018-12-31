@@ -23,7 +23,6 @@ class Factory
      */
     public static function notice($noticeContent = '', $noticeType = 'info', $isDismissible = false, $priority = 10)
     {
-error_log(14);
         return new Notice($noticeContent, $noticeType, $isDismissible, $priority);
     }
 
