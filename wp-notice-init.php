@@ -15,3 +15,4 @@ if (!class_exists('\WPDesk\Notice\Factory')) {
     require_once './WPDesk/Notice/Factory.php';
 }
 require_once './WPDesk/notice-functions.php';
+
