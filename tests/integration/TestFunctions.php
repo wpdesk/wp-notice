@@ -99,4 +99,14 @@ class TestFunctions extends WP_UnitTestCase
         $notice->showNotice();
     }
 
+    /**
+     * Test WPDeskInitNoticeAjaxHandler function.
+     */
+    public function testWPDeskInitNoticeAjaxHandler()
+    {
+        $ajax_handler = wpdesk_init_notice_ajax_handler();
+
+        $this->assertInstanceOf(\WPDesk\Notice\AjaxHandler::class, $ajax_handler);
+    }
+
 }

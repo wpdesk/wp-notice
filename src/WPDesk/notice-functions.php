@@ -10,7 +10,9 @@ if (!function_exists('WPDeskInitNoticeAjaxHandler')) {
      */
     function WPDeskInitNoticeAjaxHandler($assetsUrl = null)
     {
-        return new \WPDesk\Notice\AjaxHandler($assetsUrl);
+        $ajax_handler = new \WPDesk\Notice\AjaxHandler($assetsUrl);
+        $ajax_handler->hooks();
+        return $ajax_handler;
     }
 }
 
