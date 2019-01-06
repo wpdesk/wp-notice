@@ -1,5 +1,33 @@
 <?php
 
+if (!function_exists('WPDeskInitNoticeAjaxHandler')) {
+    /**
+     * Init notices AJAX Handler.
+     *
+     * @param string|null $assetsUrl
+     *
+     * @return \WPDesk\Notice\AjaxHandler
+     */
+    function WPDeskInitNoticeAjaxHandler($assetsUrl = null)
+    {
+        return new \WPDesk\Notice\AjaxHandler($assetsUrl);
+    }
+}
+
+if (!function_exists('wpdesk_init_notice_ajax_handler')) {
+    /**
+     * Alias for {@see WPDeskInitNoticeAjaxHandler()} function.
+     *
+     * @param null $assetsUrl
+     *
+     * @return \WPDesk\Notice\AjaxHandler
+     */
+    function wpdesk_init_notice_ajax_handler($assetsUrl = null)
+    {
+        return WPDeskInitNoticeAjaxHandler($assetsUrl);
+    }
+}
+
 if (!function_exists('WPDeskNotice')) {
     /**
      * Creates Notice.

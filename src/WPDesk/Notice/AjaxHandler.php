@@ -30,7 +30,7 @@ class AjaxHandler implements HookablePluginDependant
     /**
      * AjaxHandler constructor.
      *
-     * @param string $assetsURL Assets URL.
+     * @param string|null $assetsURL Assets URL.
      */
     public function __construct($assetsURL = null)
     {
