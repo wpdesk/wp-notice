@@ -10,6 +10,15 @@ class TestFunctions extends WP_UnitTestCase
 {
 
     /**
+     * Test redeclare functions.
+     */
+    public function testRedeclareFunctions()
+    {
+        include __DIR__ . '/../../src/WPDesk/notice-functions.php';
+        $this->assertTrue(true);
+    }
+
+    /**
      * Test WPDeskNotice function.
      */
     public function testWPDeskNotice()
