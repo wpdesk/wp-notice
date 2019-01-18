@@ -16,7 +16,7 @@ if (!function_exists('WPDeskInitNoticeAjaxHandler')) {
     }
 }
 
-//if (!function_exists('wpdesk_init_notice_ajax_handler')) {
+if (!function_exists('wpdesk_init_notice_ajax_handler')) {
     /**
      * Alias for {@see WPDeskInitNoticeAjaxHandler()} function.
      *
@@ -28,7 +28,7 @@ if (!function_exists('WPDeskInitNoticeAjaxHandler')) {
     {
         return WPDeskInitNoticeAjaxHandler($assetsUrl);
     }
-//}
+}
 
 if (!function_exists('WPDeskNotice')) {
     /**
