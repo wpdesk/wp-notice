@@ -19,11 +19,11 @@ class TestFunctions extends WP_UnitTestCase
     }
 
     /**
-     * Test WPDeskNotice function.
+     * Test WPDeskWpNotice function.
      */
-    public function testWPDeskNotice()
+    public function testWPDeskWpNotice()
     {
-        $notice = wpdesk_notice('test function');
+        $notice = wpdesk_wp_notice('test function');
 
         $this->assertInstanceOf(Notice::class, $notice);
 
@@ -33,11 +33,11 @@ class TestFunctions extends WP_UnitTestCase
     }
 
     /**
-     * Test WPDeskNoticeInfo function.
+     * Test WPDeskWpNoticeInfo function.
      */
-    public function testWPDeskNoticeInfo()
+    public function testWPDeskWpNoticeInfo()
     {
-        $notice = wpdesk_notice_info('test function');
+        $notice = wpdesk_wp_notice_info('test function');
 
         $this->assertInstanceOf(Notice::class, $notice);
 
@@ -47,11 +47,11 @@ class TestFunctions extends WP_UnitTestCase
     }
 
     /**
-     * Test WPDeskNoticeError function.
+     * Test WPDeskWpNoticeError function.
      */
-    public function testWPDeskNoticeError()
+    public function testWPDeskWpNoticeError()
     {
-        $notice = wpdesk_notice_error('test function');
+        $notice = wpdesk_wp_notice_error('test function');
 
         $this->assertInstanceOf(Notice::class, $notice);
 
@@ -61,11 +61,11 @@ class TestFunctions extends WP_UnitTestCase
     }
 
     /**
-     * Test WPDeskNoticeWarning function.
+     * Test WPDeskWpNoticeWarning function.
      */
-    public function testWPDeskNoticeWarning()
+    public function testWPDeskWpNoticeWarning()
     {
-        $notice = wpdesk_notice_warning('test function');
+        $notice = wpdesk_wp_notice_warning('test function');
 
         $this->assertInstanceOf(Notice::class, $notice);
 
@@ -75,11 +75,11 @@ class TestFunctions extends WP_UnitTestCase
     }
 
     /**
-     * Test WPDeskNoticeSuccess function.
+     * Test WPDeskWpNoticeSuccess function.
      */
-    public function testWPDeskNoticeSuccess()
+    public function testWPDeskWpNoticeSuccess()
     {
-        $notice = wpdesk_notice_success('test function');
+        $notice = wpdesk_wp_notice_success('test function');
 
         $this->assertInstanceOf(Notice::class, $notice);
 
@@ -89,11 +89,11 @@ class TestFunctions extends WP_UnitTestCase
     }
 
     /**
-     * Test WPDeskPermanentDismissibleNotice function.
+     * Test WPDeskPermanentDismissibleWpNotice function.
      */
-    public function testWPDeskPermanentDismissibleNotice()
+    public function testWPDeskPermanentDismissibleWpNotice()
     {
-        $notice = wpdesk_permanent_dismissible_notice(
+        $notice = wpdesk_permanent_dismissible_wp_notice(
             'test function',
             'test-notice',
             Notice::NOTICE_TYPE_INFO
@@ -111,9 +111,9 @@ class TestFunctions extends WP_UnitTestCase
     /**
      * Test WPDeskInitNoticeAjaxHandler function.
      */
-    public function testWPDeskInitNoticeAjaxHandler()
+    public function testWPDeskInitWpNoticeAjaxHandler()
     {
-        $ajax_handler = wpdesk_init_notice_ajax_handler();
+        $ajax_handler = wpdesk_init_wp_notice_ajax_handler();
 
         $this->assertInstanceOf(\WPDesk\Notice\AjaxHandler::class, $ajax_handler);
     }
