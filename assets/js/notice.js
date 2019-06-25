@@ -1,8 +1,6 @@
 jQuery( document ).on( 'click', '.notice-dismiss', function() {
     var notice_name = jQuery(this).closest('div.notice').data('notice-name');
     var source = jQuery(this).closest('div.notice').data('source');
-console.log('d');
-console.log(source);
     if ('' !== notice_name) {
         jQuery.ajax({
             url: ajaxurl,
@@ -19,7 +17,6 @@ console.log(source);
 });
 
 jQuery( document ).on( 'click', '.notice-dismiss-link', function() {
-console.log(jQuery(this).data('source'));
     jQuery(this).closest('div.notice').data('source',jQuery(this).data('source'));
     jQuery(this).closest('div.notice').find('.notice-dismiss').click();
 });
