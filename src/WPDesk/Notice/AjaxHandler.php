@@ -19,7 +19,7 @@ class AjaxHandler implements HookablePluginDependant
 
     const POST_FIELD_NOTICE_NAME = 'notice_name';
 
-    const SCRIPTS_VERSION = '3';
+    const SCRIPTS_VERSION = '4';
     const SCRIPT_HANDLE = 'wpdesk_notice';
 
     /**

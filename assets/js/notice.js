@@ -1,4 +1,4 @@
-jQuery( document ).on( 'click', '.notice-dismiss,.notice-dismiss-link', function() {
+jQuery( document ).on( 'click', '.notice-dismiss', function() {
     var notice_name = jQuery(this).closest('div.notice').data('notice-name');
     if ('' !== notice_name) {
         jQuery.ajax({
@@ -14,3 +14,6 @@ jQuery( document ).on( 'click', '.notice-dismiss,.notice-dismiss-link', function
     }
 });
 
+jQuery( document ).on( 'click', '.notice-dismiss-link', function() {
+    jQuery(this).closest('div.notice').find('.notice-dismiss').click();
+});
