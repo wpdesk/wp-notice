@@ -83,11 +83,11 @@ class AjaxHandler implements HookablePluginDependant
     {
         if (isset($_POST[self::POST_FIELD_NOTICE_NAME])) {
             $noticeName = $_POST[self::POST_FIELD_NOTICE_NAME];
-	        if (isset($_POST[self::POST_FIELD_SOURCE])) {
-		        $source = $_POST[ self::POST_FIELD_SOURCE ];
-	        } else {
-	        	$source = null;
-	        }
+            if (isset($_POST[self::POST_FIELD_SOURCE])) {
+                $source = $_POST[ self::POST_FIELD_SOURCE ];
+            } else {
+                $source = null;
+            }
             update_option(
                 PermanentDismissibleNotice::OPTION_NAME_PREFIX . $noticeName,
                 PermanentDismissibleNotice::OPTION_VALUE_DISMISSED
