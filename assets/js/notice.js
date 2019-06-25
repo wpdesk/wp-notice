@@ -1,4 +1,4 @@
-jQuery( document ).on( 'click', '.notice-dismiss', function() {
+jQuery( document ).on( 'click', '.notice-dismiss,.notice-dismiss-link', function() {
     var notice_name = jQuery(this).closest('div.notice').data('notice-name');
     if ('' !== notice_name) {
         jQuery.ajax({
