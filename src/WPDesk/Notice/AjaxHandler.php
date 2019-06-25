@@ -18,6 +18,7 @@ class AjaxHandler implements HookablePluginDependant
     use PluginAccess;
 
     const POST_FIELD_NOTICE_NAME = 'notice_name';
+    const POST_FIELD_SOURCE = 'source';
 
     const SCRIPTS_VERSION = '4';
     const SCRIPT_HANDLE = 'wpdesk_notice';
@@ -82,11 +83,16 @@ class AjaxHandler implements HookablePluginDependant
     {
         if (isset($_POST[self::POST_FIELD_NOTICE_NAME])) {
             $noticeName = $_POST[self::POST_FIELD_NOTICE_NAME];
+	        if (isset($_POST[self::POST_FIELD_SOURCE])) {
+		        $source = $_POST[ self::POST_FIELD_SOURCE ];
+	        } else {
+	        	$source = null;
+	        }
             update_option(
                 PermanentDismissibleNotice::OPTION_NAME_PREFIX . $noticeName,
                 PermanentDismissibleNotice::OPTION_VALUE_DISMISSED
             );
-            do_action('wpdesk_notice_dismissed_notice', $noticeName);
+            do_action('wpdesk_notice_dismissed_notice', $noticeName, $source);
         }
         if (defined('DOING_AJAX') && DOING_AJAX) {
             die();
